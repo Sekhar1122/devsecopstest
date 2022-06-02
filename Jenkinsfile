@@ -17,5 +17,13 @@ pipeline {
       sh 'mvn clean package'
       }
     }
+    stage ('Deploy-To-Tomcat') {
+            steps {
+            sshagent(['Tomcat']) {
+                sh 'scp -o StrictHostKeyChecking=no target/*.war kali@192.168.1.40:/home/kali/Downloads/apache-tomcat-9.0.63/webapps
+/webapp.war'
+             }     
+           }       
+    }
   }
 }
