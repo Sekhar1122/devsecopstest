@@ -12,6 +12,11 @@ pipeline {
             ''' 
       }
     }
+    stage ('SCA-OWASP dependencycheck') {
+      steps{
+      build 'sca-dependencycheck'
+      }
+    }
     stage ('Build') {
       steps{
       sh 'mvn clean package'
