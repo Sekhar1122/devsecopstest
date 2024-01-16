@@ -1,4 +1,3 @@
-#building the pipeline.
 pipeline {
   agent any 
   tools {
